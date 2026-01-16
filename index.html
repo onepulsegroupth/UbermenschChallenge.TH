@@ -63,3 +63,36 @@
 
 </body>
 </html>
+
+<div id="toast">คัดลอกลิงก์แล้ว</div>
+
+<style>
+#toast {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0,0,0,0.85);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 999px;
+  opacity: 0;
+  transition: opacity .3s;
+}
+#toast.show {
+  opacity: 1;
+}
+</style>
+
+<script>
+function openAndCopy() {
+  const url = "https://kittiphatramp-golf.github.io/UbermenschChallenge.TH/";
+  navigator.clipboard.writeText(url);
+
+  const toast = document.getElementById("toast");
+  toast.classList.add("show");
+  setTimeout(() => toast.classList.remove("show"), 2000);
+
+  window.open(url, "_blank");
+}
+</script>
